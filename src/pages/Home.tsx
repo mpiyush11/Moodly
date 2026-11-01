@@ -17,25 +17,28 @@ export function Home() {
   return (
     <div>
       {/* A. Hero */}
-      <section className="relative flex min-h-[90svh] items-end overflow-hidden bg-[#141414] pt-[calc(9rem+env(safe-area-inset-top))] sm:min-h-[100svh] sm:pt-40">
-        <SafeImage
-          src={SAMPLE_IMAGES.kalamkariCreamBack}
-          alt="Kalamkari Heritage cream, back print, natural light"
-          className="absolute inset-0 h-full w-full object-cover opacity-90"
-          fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#141414] text-sm text-[#F5F0E8]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-black/10" />
-        <div className="relative z-10 mx-auto w-full max-w-[1200px] px-4 pb-12 sm:px-6 sm:pb-16">
-          <p className="text-xs font-medium tracking-[0.3em] text-[#F5F0E8]/80">DROP 01</p>
-          <h1 className="mt-4 font-serif text-5xl italic tracking-tight text-white sm:text-7xl">
+      <section className="relative overflow-hidden bg-[#F5F0E8] md:min-h-[100svh] md:bg-[#141414]">
+        <div className="relative h-[72svh] min-h-[30rem] md:absolute md:inset-0 md:h-auto md:min-h-0">
+          <SafeImage
+            src={SAMPLE_IMAGES.kalamkariCreamBack}
+            alt="Kalamkari Heritage cream, back print, natural light"
+            className="absolute inset-0 h-full w-full object-cover md:opacity-90"
+            fallbackClassName="absolute inset-0 flex h-full w-full items-center justify-center bg-[#F5F0E8] text-sm text-[#141414] md:bg-[#141414] md:text-[#F5F0E8]"
+          />
+          <div className="absolute inset-0 hidden bg-gradient-to-t from-black/75 via-black/20 to-black/5 md:block" />
+        </div>
+        <div className="relative z-10 mx-auto w-full max-w-[1200px] bg-[#F5F0E8] px-4 py-10 sm:px-6 md:flex md:min-h-[100svh] md:items-end md:bg-transparent md:pb-16 md:pt-40">
+          <p className="text-xs font-medium tracking-[0.3em] text-[#7A1F1F] md:text-[#F5F0E8]/80">DROP 01</p>
+          <h1 className="mt-4 max-w-[10ch] font-serif text-[clamp(2.75rem,10vw,4.5rem)] italic leading-[0.98] tracking-tight text-[#141414] md:max-w-none md:text-7xl md:text-white">
             Wear your mood.
           </h1>
-          <p className="mt-4 text-sm tracking-wide text-[#F5F0E8]/90 sm:text-base">
+          <p className="mt-4 text-sm tracking-wide text-[#6B6460] sm:text-base md:text-[#F5F0E8]/90">
             240 GSM · Drop-shoulder · Jaipur
           </p>
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-7 flex flex-col gap-3 sm:mt-8 sm:flex-row">
             <PrimaryButton
               href="#drop"
+              className="w-full md:w-auto"
               onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
                 scrollToId("drop");
@@ -45,16 +48,16 @@ export function Home() {
             </PrimaryButton>
             <GhostButton
               href="#/print"
+              className="w-full border-[#141414] text-[#141414] hover:bg-[#141414] hover:text-[#F5F0E8] md:w-auto md:border-white md:text-white md:hover:bg-white md:hover:text-[#141414]"
               onClick={(e: React.MouseEvent) => {
                 e.preventDefault();
                 navigate("/print");
               }}
-              className="border-white text-white hover:bg-white hover:text-[#141414]"
             >
               Print your mood
             </GhostButton>
           </div>
-          <p className="mt-6 text-xs tracking-wide text-[#F5F0E8]/70">
+          <p className="mt-6 text-xs tracking-wide text-[#6B6460] md:text-[#F5F0E8]/70">
             Free Jaipur pickup · Ships pan-India
           </p>
         </div>
@@ -84,7 +87,7 @@ export function Home() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 lg:gap-7">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:grid-cols-3 lg:gap-7">
           {activeProducts.map((product) => (
             <ProductCard key={product.slug} product={product} />
           ))}

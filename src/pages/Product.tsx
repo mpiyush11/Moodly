@@ -48,7 +48,7 @@ export function ProductPage({ slug }: { slug: string }) {
   const related = products.find((p) => p.slug === product.relatedSlug && p.slug !== product.slug);
   const gallery = getProductImages(product);
 
-  const orderHref = waLink(productOrderText(product.name, product.color, size ?? ""));
+  const orderHref = waLink(productOrderText(product.name, product.color, size ?? "", product.price));
 
   return (
     <div className="pb-28 sm:pb-0">
@@ -141,7 +141,7 @@ export function ProductPage({ slug }: { slug: string }) {
               disabled={product.soldOut || !size}
               className="w-full sm:w-auto"
             >
-              {product.soldOut ? "Sold out" : "Order on WhatsApp"}
+              {product.soldOut ? "Sold out" : size ? "Order on WhatsApp" : "Select size"}
             </PrimaryButton>
           </div>
 

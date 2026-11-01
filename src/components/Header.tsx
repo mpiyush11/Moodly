@@ -41,9 +41,9 @@ export function Header() {
 
   return (
     <header className={isHome
-      ? "absolute inset-x-0 top-0 z-50 border-b border-white/15 bg-black/10 text-white backdrop-blur"
+      ? "absolute inset-x-0 top-0 z-50 border-b border-[#E5DED3] bg-[#F5F0E8]/95 text-[#141414] backdrop-blur md:border-white/15 md:bg-black/10 md:text-white"
       : "sticky top-0 z-50 border-b border-[#E5DED3] bg-[#F5F0E8]/95 backdrop-blur"}>
-      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 sm:px-6">
+      <div className="mx-auto flex h-16 max-w-[1200px] items-center justify-between px-4 pt-[env(safe-area-inset-top)] sm:px-6">
         <a
           href="#/"
           onClick={(e) => {
@@ -53,10 +53,10 @@ export function Header() {
           className="flex items-center gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#7A1F1F]"
         >
           <Mark />
-          <span className={isHome ? "text-sm font-semibold tracking-[0.2em] text-white" : "text-sm font-semibold tracking-[0.2em] text-[#141414]"}>MOODLY</span>
+          <span className={isHome ? "text-sm font-semibold tracking-[0.2em] text-[#141414] md:text-white" : "text-sm font-semibold tracking-[0.2em] text-[#141414]"}>MOODLY</span>
         </a>
 
-        <nav className={isHome ? "flex items-center gap-3 text-sm tracking-wide text-white sm:gap-5 md:gap-8" : "flex items-center gap-3 text-sm tracking-wide text-[#141414] sm:gap-5 md:gap-8"}>
+        <nav className={isHome ? "hidden items-center gap-3 text-sm tracking-wide text-white sm:flex sm:gap-5 md:gap-8" : "flex items-center gap-2 text-xs tracking-wide text-[#141414] sm:gap-5 sm:text-sm md:gap-8"}>
           <a href="#drop" onClick={goHomeAndScroll("drop")} className="hover:text-[#7A1F1F]">
             Drop
           </a>
